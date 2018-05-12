@@ -3,7 +3,14 @@
 #
 # script_template.sh
 #
-# My basic shell script template, user over and over and over
+# My basic shell script template, user over and over and over. Create ../lib
+# with functions.sh and common.sh files. Use functions for, um, functions and
+# common.sh for global variables. This script normally lives in a bin dir
+# and default does ../lib becuase of that. As I said, it's MY template so
+# you'll have to adjust for your own needs.
+#
+# youngd24@gmail.com
+# darren@yhlsecurity.com
 #
 ###############################################################################
 
