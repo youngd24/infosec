@@ -1,0 +1,12 @@
+<create_task>
+  <name>10.0.0.10</name>
+  <comment>cmdline scan</comment>
+  <config id="daba56c8-73ec-11df-a475-002264764cea"/>
+  <target id="5ed3c281-3278-4fc6-91f4-134c6f51767c"/>
+  <preferences>
+    <preference>
+        <scanner_name>max_checks</scanner_name>
+        <value>4</value>
+    </preference>
+  </preferences>
+</create_task>
