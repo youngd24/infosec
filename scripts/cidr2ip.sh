@@ -49,7 +49,7 @@ typeset -f check_net_boundary
 
 
 # -----------------------------------------------------------------------------
-#        NAME: function_template
+#        NAME: prefix_to_bit_netmask
 # DESCRIPTION:
 #        ARGS:
 #     RETURNS:
@@ -79,7 +79,7 @@ prefix_to_bit_netmask() {
 
 
 # -----------------------------------------------------------------------------
-#        NAME: function_template
+#        NAME: bit_netmask_to_wildcard_netmask
 # DESCRIPTION:
 #        ARGS:
 #     RETURNS:
@@ -97,7 +97,7 @@ bit_netmask_to_wildcard_netmask() {
 
 
 # -----------------------------------------------------------------------------
-#        NAME: function_template
+#        NAME: check_net_boundary
 # DESCRIPTION:
 #        ARGS:
 #     RETURNS:
