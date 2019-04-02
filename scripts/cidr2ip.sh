@@ -1,8 +1,61 @@
 #!/bin/bash    
+###############################################################################
+#
+# cidr2ip.sh
+#
+# Copyright (C) 2018-2019 Darren Young <darren@yhlsecurity.com>
+#
+################################################################################
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+###############################################################################
+#
+# USAGE:
+#
+###############################################################################
+#
+# TODO/ISSUES:
+#
+###############################################################################
 
-############################
-##  Methods
-############################   
+
+###############################################################################
+#                              V A R I A B L E S
+###############################################################################
+
+
+
+
+###############################################################################
+#                              F U N C T I O N S
+###############################################################################
+
+# I honestly don't remember why I started doing this, leftover ksh memories?
+typeset -f prefix_to_bit_netmask
+typeset -f bit_netmask_to_wildcard_netmask
+typeset -f check_net_boundary
+
+
+# -----------------------------------------------------------------------------
+#        NAME: function_template
+# DESCRIPTION:
+#        ARGS:
+#     RETURNS:
+#      STATUS:
+#       NOTES:
+# -----------------------------------------------------------------------------
 prefix_to_bit_netmask() {
     prefix=$1;
     shift=$(( 32 - prefix ));
@@ -24,6 +77,15 @@ prefix_to_bit_netmask() {
     echo $bitmask
 }
 
+
+# -----------------------------------------------------------------------------
+#        NAME: function_template
+# DESCRIPTION:
+#        ARGS:
+#     RETURNS:
+#      STATUS:
+#       NOTES:
+# -----------------------------------------------------------------------------
 bit_netmask_to_wildcard_netmask() {
     bitmask=$1;
     wildcard_mask=
@@ -33,6 +95,15 @@ bit_netmask_to_wildcard_netmask() {
     echo $wildcard_mask;
 }
 
+
+# -----------------------------------------------------------------------------
+#        NAME: function_template
+# DESCRIPTION:
+#        ARGS:
+#     RETURNS:
+#      STATUS:
+#       NOTES:
+# -----------------------------------------------------------------------------
 check_net_boundary() {
     net=$1;
     wildcard_mask=$2;
@@ -49,9 +120,10 @@ check_net_boundary() {
     echo $is_correct;
 }
 
-#######################
-##  MAIN
-#######################
+
+###############################################################################
+#                                   M A I N
+###############################################################################
 OPTIND=1;
 getopts "fibh" force;
 
@@ -103,10 +175,24 @@ for ip in ${lines[@]}; do
             str="${str} $range"
         done
         ips=$(echo $str | sed "s, ,\\.,g"); ## replace spaces with periods, a join...
-
         eval echo $ips | tr ' ' '\n'
-else
-exit
+    else
+        exit
     fi
-
 done
+
+
+
+
+###############################################################################
+#                         S E C T I O N   T E M P L A T E
+###############################################################################
+
+# -----------------------------------------------------------------------------
+#        NAME: function_template
+# DESCRIPTION:
+#        ARGS:
+#     RETURNS:
+#      STATUS:
+#       NOTES:
+# -----------------------------------------------------------------------------
